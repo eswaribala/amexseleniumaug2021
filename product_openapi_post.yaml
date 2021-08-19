@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: product
+  version: '1.0'
+servers:
+  - url: 'https://www.americanexpress.com/en-in/'
+paths:
+  '/products/{productId}':
+    parameters:
+      - schema:
+          type: integer
+        name: productId
+        in: path
+        required: true
+    get:
+      summary: product
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  productId:
+                    type: integer
+                  productName:
+                    type: string
+      operationId: get-product-productId
+      description: Retrieve a specific customer by ID
+  /products:
+    post:
+      summary: products
+      operationId: post-products
+      responses:
+        '201':
+          description: Created
+      description: Add a new product record
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+components:
+  schemas: {}
