@@ -1,0 +1,11 @@
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+def url = "http://rates.goldenchennai.com/";
+def document = Jsoup.connect(url).get();
+def goldDetails = document.select('#zh')
+def caratDetails= goldDetails.first().text()
+
+println caratDetails
